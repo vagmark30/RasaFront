@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>VagBot, an IEE IHU Assistant</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,67 @@
 
   <body id="page-top">
 
+    <div id="webchat">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://">
+    <script>!(function () {
+      let e = document.createElement("script"),
+        t = document.head || document.getElementsByTagName("head")[0];
+      (e.src =
+        "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+        (e.async = !0),
+        (e.onload = () => {
+          window.WebChat.default(
+            { 
+              selector: "#webchat",
+        initPayload: "/get_started",
+        customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+        socketUrl: "http://0cf0-185-44-144-54.ngrok.io",
+        customMessageDelay: (message) => {
+        let delay = message.length * 30;
+        if (delay > 3 * 200) delay = 3 * 200;
+        if (delay < 100) delay = 100;
+        return delay;
+      },
+        
+        socketPath: "/socket.io/",
+        title: "VagBot",
+        tooltip: true,    
+        tooltipDelay: 500,
+        subtitle: "Powered by IEE IHU",
+        connectingText: "Waiting for server...",
+        profileAvatar: "img/IEE_logo_v2.svg",
+        openLauncherImage: "img/chatbot.svg",
+    
+        params: {"storage": "session"}, 
+        
+        mainColor: "#283e4a",
+        userBackgroundColor: "#283e4a",
+        userTextColor: "#cde9ce",
+        showMessageDate: false,
+        inputTextFieldHint: "Πληκτρολογίστε μια ερώτηση...",
+        badge: " ",
+        displayUnreadCount: true,
+        isChatOpen: true,
+        embedded: false,
+        showCloseButton: true,
+        showFullScreenButton: false,
+        docViewer: true,
+        
+       
+            },
+            null
+          );
+        }),
+        t.insertBefore(e, t.firstChild);
+    })();
+    
+    
+    
+    </script>
+
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="left: 0; right: 0; top: 0">
       <div class="container">
@@ -38,18 +99,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Γενικα</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Μαθηματα</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Χωρος</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Επικοινωνια</a>
-            </li>
+
           </ul>
         </div>
       </div>
@@ -81,184 +131,7 @@
             <a href="http://www.it.teithe.gr"><IMG SRC="logo.png" alt="Εικόνα σύνδεσμος"  /></a>
 			<hr class="light my-4">
             <p class="text-faded mb-4">Το Τμήμα Μηχανικών Πληροφορικής του Αλεξάνδρειου ΤΕΙ Θεσσαλονίκης, ιδρύθηκε το 1987 και οργανώνει προπτυχιακό και μεταπτυχιακό πρόγραμμα σπουδών, συμβάλλοντας στην έρευνα και εκπαίδευση υψηλού επιπέδου στελεχιακού δυναμικού ικανού να συνεισφέρει στην ανάπτυξη της νέας ψηφιακής οικονομίας</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Επομενο!</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Τα μαθήματα του 2ου εξαμήνου</h2>
-            <hr class="my-3">
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              
-              <h3 class="mb-3">Λειτουργικά Συστήματα</h3>
-              <p class="text-muted mb-0">Κατανόηση των γενικών αρχών των Λειτουργικών Συστημάτων μέσω της χρήσης και προγραμματισμού στο UNIX.</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <!-- <i class="fa fa-3x fa-newspaper-o text-primary mb-3 sr-icons"></i>-->
-              <h3 class="mb-3">Γλώσσες και Τεχνολογίες ιστού</h3>
-              <p class="text-muted mb-0">Βασικές γλώσσες και τεχνολογίες του web, ανάπτυξη front-end για web εφαρμογές καθως και  προγραμματισμό κ τεχνικές ανάπτυξης client-side προγραμμάτων </p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <h3 class="mb-3">Διακριτά Μαθηματικά</h3>
-              <p class="text-muted mb-0">Τhe basic ideas of discrete mathematics such as basic formal logic, counting techniques, graph theory.</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <!-- <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>-->
-              <h3 class="mb-3">Αντικειμενοστρεφής Προγραμματισμός</h3>
-              <p class="text-muted mb-0">Οbject-oriented thinking to solve computational and programming problems.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <h3 class="mb-3">Πληροφοριακά Συστήματα</h3>
-              <p class="text-muted mb-0">Eξέταση του ρόλου ,της χρήσης των ΠΣ στην υποστήριξη ενός ευρέως φάσματος λειτουργιών, διαχειριστικών ενεργειών, λήψης αποφάσεων.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="p-0" id="portfolio">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--section class="bg-dark text-white">
-      <div class="container text-center">
-        <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
-      </div>
-    </section-->
-
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Let's Get In Touch!</h2>
-            <hr class="my-4">
-            <p class="mb-5">Give us a call or send us an email and we will get back to you as soon as possible!</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 ml-auto text-center">
-            <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-            <p>6993267777</p>
-          </div>
-          <div class="col-lg-4 mr-auto text-center">
-            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
-            <p>
-              <a href="mailto:your-email@your-domain.com">vagmark30@gmail.com</a>
-            </p>
+            <!-- <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Επομενο!</a> -->
           </div>
         </div>
       </div>

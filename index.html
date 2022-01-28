@@ -44,7 +44,7 @@
               selector: "#webchat",
         initPayload: "/get_started",
         customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
-        socketUrl: "http://0cf0-185-44-144-54.ngrok.io",
+        socketUrl: "https://0cf0-185-44-144-54.ngrok.io",
         customMessageDelay: (message) => {
         let delay = message.length * 30;
         if (delay > 3 * 200) delay = 3 * 200;
